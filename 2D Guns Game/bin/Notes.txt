@@ -1,0 +1,28 @@
+This is where i can write down some general thoughts and ideas about the build
+
+Ideas:
+-
+-
+-
+
+Issues:
+-Ok so the gravity ball got me only so far, which I am coming to realize. The threshold condition within the 
+grenade is becoming true at inconvenient times, and is making the logic much harder. I need to take a step 
+back and build a more reliable and elegant solution for the "preserved energy" type thing with a ball and 
+an object set (wood, stone, metal) which i want to each have a different preserved energy value. 
+
+-We must consider pixel sizes for different computers for when we sell the game. We must find a way to
+ensure it is full screen no matter the type of computer you have.
+
+-I am making it too hard on myself by making the ground a different class type rather than a solid block.
+The ground should be a block itself, even a really long one, so that the logic for grenade bounces are 
+easier to handle. 
+
+-Need to multi-thread the mouse and key events. There is a 'clunkiness' with the controls currently
+
+-
+
+REMINDERS:
+-you have NOT YET replaced the Grenade class used in-game with updated version!!!
+
+-
