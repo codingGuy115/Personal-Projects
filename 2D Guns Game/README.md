@@ -10,7 +10,7 @@ This project is a small video game developed in Java using Java's .swing library
 
 Green: standard bullet.
 
-Red: shotgun, a couple pellets are initialized at the player and given a Y velocity in a specific range, to give a 'random spread' effect. 
+Red: shotgun, a couple pellets are initialized at the player and given a random Y velocity in a specific range, to give a 'random spread' effect. 
 
 Blue: grenade launcher. A projectile is given X and Y velocity depending on the distance the player is from where they click on the screen. The farther it is, the larger the velocity. The grenade follows simple simulated gravity. 
 
