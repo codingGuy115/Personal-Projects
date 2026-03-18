@@ -103,6 +103,9 @@ def is_file_empty(file_path):
         print(f"Error: The file '{file_path}' was not found.")
         return False
 
+def generate_schedule(): #Orchestration method that will call the other methods in the correct order. This is what main will call.
+    pass
+
 #--------------------------#
 #----------- MAIN ---------#
 #--------------------------#
