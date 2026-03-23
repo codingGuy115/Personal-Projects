@@ -1,2 +1,7 @@
-math,hw2,7,22
-physics,hwExpta,6,23
+HW physics,HW08,5,53
+HW physics,pc09,2,1
+HW stat,homework 8,4,7
+HW stat,quiz 8,5,5
+HW stat,lab activity 2,7,7
+STUDY physics,hw05(potE),8,39
+STUDY stat,homework 6,8,11

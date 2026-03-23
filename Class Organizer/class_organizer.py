@@ -81,7 +81,7 @@ def allocateTasks(count_freeDays, assignment:Assignment, day_plans:list[Day])->N
             remaining_questions -= questions_today
 
 
-def writeToMemory(assignments:list[Assignment]):
+def writeToMemoryALL(assignments:list[Assignment]):
     with open('memory.txt', 'w') as f:
         for a in assignments:
             f.write(a.subject + "," + a.name + "," + str(a.due_date) + "," + str(a.num_questions) + "\n")
@@ -103,8 +103,16 @@ def is_file_empty(file_path):
         print(f"Error: The file '{file_path}' was not found.")
         return False
 
-def generate_schedule(): #Orchestration method that will call the other methods in the correct order. This is what main will call.
-    pass
+def generate_schedule(day_plans:list, workingDays:dict, today:int): #Orchestration method. need memory file to be complete here
+    # goes based off of what is in memory.txt
+    assignmentsREAD = readFromMemory()
+    if len(assignmentsREAD) == 0:
+        return -1
+
+    for a in assignmentsREAD:
+        count_freeDays = DaysFreeToWork(today, a.due_date, workingDays)
+        allocateTasks(count_freeDays, a, day_plans)
+
 
 #--------------------------#
 #----------- MAIN ---------#
@@ -112,12 +120,13 @@ def generate_schedule(): #Orchestration method that will call the other methods 
 if __name__=="__main__":
     # SETTINGS
     day_plans = [Day('Saturday'), Day('Sunday'), Day('Monday'), Day('Tuesday'), Day('Wednesday'), Day('Thursday'), Day('Friday'), Day('Saturday'), Day('Sunday')]
-    workingDays = {0:'y',           1:'y',          2:'y',          3:'y',          4:'y',          5:'y',          6:'y',          7:'n',          8:'n'}
+    workingDays = {0:'y',           1:'n',          2:'y',          3:'y',          4:'y',          5:'y',          6:'y',          7:'y',          8:'y'}
     today = 1
     
     # 
     assignmentsTOTAL:list[Assignment] = []
     
+    #HW: physics 53q, pc09, stathw 8 7q,         | STUDY: physics hw05(potE) 39q, stat hw6 11q
     # Gather INPUT FOR ASSIGNMENTS
     # For now, I will hardcode this, but eventually I will make it so that the user can input this data
     # 2 main cases for starting input: 1: theres nothing in memory, 2: already stuff, so we skip user input
@@ -132,14 +141,10 @@ if __name__=="__main__":
             num_questions = int(input("Enter number of questions: "))
             assignmentsTOTAL.append(Assignment(subject, name, due_date, num_questions))
 
-        writeToMemory(assignmentsTOTAL) #we only need to do this if we added new assignments.
+        writeToMemoryALL(assignmentsTOTAL) #we only need to do this if we added new assignments.
 
     # CALLS -> This happens AFTER all assignments added and written to memory.txt. Then, the program will read from memory.txt and call allocateTasks for each assignment.
-    assignmentsREAD = readFromMemory()
-    for a in assignmentsREAD:
-        count_freeDays = DaysFreeToWork(today, a.due_date, workingDays)
-        allocateTasks(count_freeDays, a, day_plans)
-
+    generate_schedule(day_plans, workingDays, today)
     
     for d in day_plans:
         print(d)
