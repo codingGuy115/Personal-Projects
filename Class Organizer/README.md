@@ -5,4 +5,5 @@ block of time and allocates tasks from assignments evenly across days. Days can 
 as well as adding a UI for easier scheduling. 
 
 **In action**:
+
 <img width="308" height="799" alt="image" src="https://github.com/user-attachments/assets/11db42fd-8102-4e29-83a5-3c5e8efb680a" />
