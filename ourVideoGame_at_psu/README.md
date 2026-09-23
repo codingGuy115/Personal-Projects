@@ -1,5 +1,12 @@
 This is an overview of the 2D LWJGL Rendering Engine project. I will break it up into sections and provide video explanations.
 
+**Engine Architecture**
+
+
+**Renderbatch**
+General explanation:
+
+
 **Spritesheet**
 General explanation:
 
@@ -12,5 +19,6 @@ Functionality:
 
 
 https://github.com/user-attachments/assets/d98ea143-ee13-462e-b153-f3f6308aa85b
+
 
 
